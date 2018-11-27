@@ -1,3 +1,7 @@
+include("rot.jl")
+include("tr.jl")
+include("refl.jl")
+
 function leg(femur_length, tibia_length)
     femur(q) = rz(q[1]) * ry(q[2]) * tr([femur_length 0 0])
     tibia(q) = ry(q[3]) * tr([tibia_length 0 0])
