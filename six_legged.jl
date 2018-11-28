@@ -16,8 +16,8 @@ function leg_pair(femur_length, tibia_length)
     return q -> vcat(
         hcat(
             vcat(
-                refl([1 0 0 0]') * l(q[1:3])[1:4,:], 
-                refl([1 0 0 0]') * l(q[1:3])[5:8,:]
+                refl([1 0 0]') * l(q[1:3])[1:4,:], 
+                refl([1 0 0]') * l(q[1:3])[5:8,:]
             ),
             zeros(8,8)
         ),
