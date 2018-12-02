@@ -12,11 +12,13 @@ A forward kinematics of a rigid mechanism in the sense of this library is a func
 (v'_1, ..., v'_m) = F([q_1, ..., q_n], (v_1, ..., v_m))
 </code>
 
+
 Particular choices of tasks that go beyond simple coordinate transforms can be recodesented by functions on the transformed vectors <code>v'</code>:
 
 <code>
 (t_1, ..., t_o) = T(F([q_1, ..., q_n], (v_1, ..., v_m)))
 </code>
+
 
 (For the case of simple coordinate transforms we can just leave out <code>T</code>).
 
@@ -26,11 +28,13 @@ Once we have <code>T(F)</code> in a functional form in julia, we can, for a part
 q -> T(F(q, V))
 </code>
 
+
 which we can then feed into e.g. ForwardDiff.jl to calculate a jacobian at a particular configuration p:
 
 <code>
 j = ForwardDiff.jacobian(q -> T(F(q, V)), p)
 </code>
+
 
 From this point on, we can use e.g. a jacobian pseudo-inverse approach to update the configuration <code>p</code> iteratively to solve the inverse kinematics problem.
 
