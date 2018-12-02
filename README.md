@@ -24,25 +24,25 @@ Particular choices of tasks that go beyond simple coordinate transforms can be r
 
 Once we have <code>T(F)</code> in a functional form in julia, we can, for a particular choice of <code>V = (v_1, .., v_m)</code> derive a function that only depends on the q's:
 
-<code>
+<pre>
 q -> T(F(q, V))
-</code>
+</pre>
 
 
 which we can then feed into e.g. ForwardDiff.jl to calculate a jacobian at a particular configuration p:
 
-<code>
+<pre>
 j = ForwardDiff.jacobian(q -> T(F(q, V)), p)
-</code>
+</pre>
 
 
 From this point on, we can use e.g. a jacobian pseudo-inverse approach to update the configuration <code>p</code> iteratively to solve the inverse kinematics problem.
 
 This library provides the building blocks for assembling functions like <code>F</code>. Let's consider a simple example: A robotic arm with three links with rotational joints.
 
-<code>
+<pre>
 (v'_1, v'_2, v'_3) = F([q_1, q_2, q_3], (v_1, v_2, v_3))
-</code>
+</pre>
 
 
 
