@@ -8,16 +8,16 @@ NOTE: This is not finished in any way yet, so don't expect ANY functionality at 
 
 A forward kinematics of a rigid mechanism in the sense of this library is a function (parametrized with <code>n</code> control variables <code>q_1, ..., q_n</code>) that maps <code>m</code> (homogenous) vectors from <code>m</code>link dependent frames into a global frame: 
 
-<code>
+<pre>
 (v'_1, ..., v'_m) = F([q_1, ..., q_n], (v_1, ..., v_m))
-</code>
+</pre>
 
 
-Particular choices of tasks that go beyond simple coordinate transforms can be recodesented by functions on the transformed vectors <code>v'</code>:
+Particular choices of tasks that go beyond simple coordinate transforms can be represented by functions on the transformed vectors <code>v'</code>:
 
-<code>
+<pre>
 (t_1, ..., t_o) = T(F([q_1, ..., q_n], (v_1, ..., v_m)))
-</code>
+</pre>
 
 
 (For the case of simple coordinate transforms we can just leave out <code>T</code>).
