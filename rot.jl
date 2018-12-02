@@ -33,7 +33,7 @@ function r(axis)
     a = unit(axis)
     return q -> vcat(
         hcat(
-            cos(q) * id3 + sin(q) * cross(a) + (1 - cos(q)) * (a * a'), 
+            cos(q) * id(3) + sin(q) * cross(a) + (1 - cos(q)) * (a * a'), 
             [0 0 0]'
         ),
         [0 0 0 1]

@@ -1,4 +1,5 @@
 function tr(x)
+    @assert size(x) == (3,1)
     return [
         1 0 0 x[1]
         0 1 0 x[2]
