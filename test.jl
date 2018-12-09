@@ -7,23 +7,42 @@ function chain1(q)
     )
 end
 
+function partial_ranges(r)
+    return map(i -> 1:i, r)
+end
+
+function partial_chains(c, q)
+    return map(
+        u -> foldl(*, u), 
+        map(
+            r -> getindex(
+                c(q),
+                r
+            ), 
+            partial_ranges(1:4)
+        )
+    )
+end
+
 function chain1_fk(q)
     return sum(
         map(    
             v -> v * [0 0 0 1]', 
             map(
                 u -> foldl(*, u), 
-                    map(
-                        r -> getindex(
-                            chain1(q),
-                            r
-                        ), 
-                        map(i -> 1:i, 1:4)
-                    )
+                map(
+                    r -> getindex(
+                        chain1(q),
+                        r
+                    ), 
+                    partial_ranges(1:4)
+                )
             )
         )
     )
 end
+
+
 
 function chain1_jacobian(q)
     return ForwardDiff.jacobian(
