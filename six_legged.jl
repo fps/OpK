@@ -25,6 +25,6 @@ function leg_pair(femur_length, tibia_length)
     )
 end
 
-function six_legged(body_segment_lenght, femur_length, tibia_length)
+function six_legged(body_segment_length, femur_length, tibia_length)
     
 end
