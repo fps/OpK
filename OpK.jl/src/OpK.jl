@@ -1,4 +1,18 @@
 module OpK
+    # elementary linear algebra stuff
+    export rx
+    export ry
+    export rz
+    export r
+    export tr
+    export refl
+    export traverse
+    export unit
+    export id
+    export cross
+    
+    # composite structures
+    export rotational
 
     include("id.jl")
     include("len.jl")
